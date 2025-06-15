@@ -1,7 +1,7 @@
 {
   "dsccViz": {
-    "gcsDevBucket": "gs://YOUR_GCS_BUCKET/my-visual-dev",
-    "gcsProdBucket": "gs://YOUR_GCS_BUCKET/my-visual-prod",
+    "gcsDevBucket": "gs://dafo-visual-looker-eu/periods-filter/dev",
+    "gcsProdBucket": "gs://dafo-visual-looker-eu/periods-filter/prod",
     "jsFile": "index.js",
     "jsonFile": "index.json",
     "cssFile": "index.css"
@@ -16,8 +16,11 @@
     "start:webpack": "webpack-dev-server --open"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
     "@google/dscc": "^0.3.22",
     "@google/dscc-scripts": "^1.0.17",
+    "babel-loader": "^8.1.0",
     "copy-webpack-plugin": "^4.6.0"
   }
 }

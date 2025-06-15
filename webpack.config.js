@@ -37,7 +37,7 @@ const iframeHTML = `
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DAFO Matrix Visualization</title>
+  <title>Date Filter Visualization</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -47,7 +47,14 @@ const iframeHTML = `
 </html>
 `;
 
-fs.writeFileSync(path.resolve(__dirname, 'dist', 'vizframe.html'), iframeHTML);
+const iframePath = path.resolve(__dirname, 'dist', 'index.html');
+
+// Ensure the dist directory exists
+if (!fs.existsSync(path.resolve(__dirname, 'dist'))) {
+  fs.mkdirSync(path.resolve(__dirname, 'dist'));
+}
+
+fs.writeFileSync(iframePath, iframeHTML);
 
 module.exports = [
   {
@@ -59,6 +66,21 @@ module.exports = [
     output: {
       filename: 'main.js',
       path: path.resolve(__dirname, 'dist'),
+    },
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+              plugins: []
+            }
+          }
+        }
+      ]
     },
     plugins: plugins,
   },

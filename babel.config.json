@@ -1,0 +1,11 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": "> 0.25%, not dead" // This tells Babel to target browsers with more than 0.25% market share and that are not "dead" (no longer maintained).
+                                      // You can be more specific, e.g., "chrome <= 79" if you only care about that specific browser version.
+      }
+    ]
+  ]
+}
