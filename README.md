@@ -120,5 +120,6 @@ npm run push:prod
 
 # TODO
 
+- [ ] Babel to transpile (?)
 - [ ] TS Support
 - [ ] Best practices guide
